@@ -31,6 +31,15 @@ export class BooGhost extends LitElement {
   @property({ type: 'String', reflect: true })
   xDirection = 'right';
 
+  @property({ type: 'Number', reflect: true, attribute: 'change-speed' })
+  changeSpeed = 5000;
+
+  @property({ type: 'Number', reflect: true, attribute: 'speed' })
+  speed = 1;
+
+  @property({ type: 'Number', reflect: true, attribute: 'scare-distance' })
+  scareDistance = 100;
+
   mouseX: number;
   mouseY: number;
   velocity: { x: 0, y: 0 };
@@ -133,8 +142,8 @@ export class BooGhost extends LitElement {
     this.hidden = false;
     this.startVelocityInterval();
     this.moveInterval = setInterval(() => {
-      this.x = this.x + this.velocity.x;
-      this.y = this.y + this.velocity.y;
+      this.x = this.x + this.velocity.x * this.speed;
+      this.y = this.y + this.velocity.y * this.speed;
     }, 1);
   }
 
@@ -145,7 +154,7 @@ export class BooGhost extends LitElement {
   }
 
   startVelocityInterval() {
-    this.velocityInterval = setInterval(() => this.randomizeVelocity(), 5000);
+    this.velocityInterval = setInterval(() => this.randomizeVelocity(), this.changeSpeed);
   }
 
   boundaryHit(side) {
@@ -179,13 +188,17 @@ export class BooGhost extends LitElement {
 
     const distance = Math.sqrt(xDistance ** 2 + yDistance ** 2);
 
-    if (distance < 100 && !this.hidden) {
+    if (distance < this.scareDistance && !this.hidden) {
       this.hide();
     } 
     
-    if (distance >= 100 && this.hidden) {
+    if (distance >= this.scareDistance && this.hidden) {
       this.move();
       this.randomizeVelocity();
     }
   }
+}
+
+export const cleanup = (tagName = 'boo-ghost') => {
+  Array.from(document.querySelectorAll(tagName)).forEach(ghostEl => ghostEl.remove());
 }
