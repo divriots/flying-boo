@@ -1,0 +1,12 @@
+{
+  "name": "@wcd/jorenbroekema.boo-ghost",
+  "version": "0.0.0",
+  "description": "",
+  "license": "ISC",
+  "type": "module",
+  "homepage": "{{ homepage }}",
+  "scripts": {
+    "serve": "npx wcd-cli@latest serve YnTmdvNX77ccZIphMD0p --open"
+  },
+  "dependencies": {}
+}
