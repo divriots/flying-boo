@@ -29,7 +29,7 @@ export class BooGhost extends LitElement {
     `;
   }
 
-  @property({ type: 'Boolean', reflect: true })
+  @property({ attribute: false })
   hidden = false;
 
   @property({ type: 'String', reflect: true, attribute: 'x-direction' })
@@ -38,7 +38,7 @@ export class BooGhost extends LitElement {
   @property({ type: 'Number', reflect: true, attribute: 'change-speed' })
   changeSpeed = 5000;
 
-  @property({ type: 'Number', reflect: true, attribute: 'speed' })
+  @property({ type: 'Number', reflect: true })
   speed = 1;
 
   @property({ type: 'Number', reflect: true, attribute: 'scare-distance' })
@@ -122,9 +122,7 @@ export class BooGhost extends LitElement {
     this.move();
 
     document.documentElement.addEventListener('mousemove', (ev) => {
-      this.mouseY = ev.pageY;
-      this.mouseX = ev.pageX;
-      this.checkDistance();
+      this.checkDistance({ x: ev.pageX, y: ev.pageY });
     });
   }
 
@@ -176,12 +174,12 @@ export class BooGhost extends LitElement {
     this.startVelocityInterval();
   }
 
-  checkDistance() {
+  checkDistance(coords: { x: number, y: number }) {
     const xDistance = Math.abs(
-      this.x + this.getBoundingClientRect().width / 2 - this.mouseX
+      this.x + this.getBoundingClientRect().width / 2 - coords.x
     );
     const yDistance = Math.abs(
-      this.y + this.getBoundingClientRect().height / 2 - this.mouseY
+      this.y + this.getBoundingClientRect().height / 2 - coords.y
     );
 
     const distance = Math.sqrt(xDistance ** 2 + yDistance ** 2);
@@ -191,8 +189,8 @@ export class BooGhost extends LitElement {
     } 
     
     if (distance >= this.scareDistance && this.hidden) {
-      this.move();
       this.randomizeVelocity();
+      this.move();
     }
   }
 }
