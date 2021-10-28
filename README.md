@@ -1,6 +1,6 @@
 # Boo Ghost
 
-Fun little halloween gimmick Web Component, works anywhere, based on [Lit](https://lit.dev).
+Fun little halloween gimmick Web Component, works anywhere, based on [Lit](https://lit.dev) and [TypeScript](https://www.typescriptlang.org/).
 
 [See the demo](https://webcomponents.dev/edit/YnTmdvNX77ccZIphMD0p/stories/index.stories.js)
 
@@ -26,7 +26,7 @@ import { BooGhost } from '@divriots/boo-ghost';
 Or from a CDN without needing NPM
 
 ```html
-<script type="module" src="https://unpkg.com/@divriots/boo-ghost?module"></script>
+<script type="module" src="https://unpkg.com/@divriots/boo-ghost/dist/index.js?module"></script>
 <boo-ghost></boo-ghost>
 ```
 
