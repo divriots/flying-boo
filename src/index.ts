@@ -18,6 +18,10 @@ export class BooGhost extends LitElement {
         z-index: 999999;
       }
 
+      :host([x-direction="right"]) {
+        --scale-x: -1;
+      }
+
       img {
         width: 80px;
         transform: scaleX(var(--scale-x));
@@ -28,7 +32,7 @@ export class BooGhost extends LitElement {
   @property({ type: 'Boolean', reflect: true })
   hidden = false;
 
-  @property({ type: 'String', reflect: true })
+  @property({ type: 'String', reflect: true, attribute: 'x-direction' })
   xDirection = 'right';
 
   @property({ type: 'Number', reflect: true, attribute: 'change-speed' })
@@ -52,12 +56,6 @@ export class BooGhost extends LitElement {
       document.documentElement.prepend(this);
     } else {
       this.init();
-    }
-  }
-
-  updated(changedProperties) {
-    if (changedProperties.has('xDirection')) {
-      this.style.setProperty('--scale-x', this.xDirection === 'right' ? "-1" : "1");
     }
   }
 
