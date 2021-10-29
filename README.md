@@ -1,4 +1,4 @@
-# Boo Ghost
+# Flying Boo
 
 Fun little halloween gimmick Web Component, works anywhere, based on [Lit](https://lit.dev) and [TypeScript](https://www.typescriptlang.org/).
 
@@ -7,46 +7,46 @@ Fun little halloween gimmick Web Component, works anywhere, based on [Lit](https
 ## Usage
 
 ```sh
-npm i @divriots/boo-ghost
+npm i @divriots/flying-boo
 ```
 
 ```html
 <script type="module">
-import '@divriots/boo-ghost';
+import '@divriots/flying-boo';
 </script>
-<boo-ghost></boo-ghost>
+<flying-boo></flying-boo>
 ```
 
 Or if you want to extend the component
 
 ```js
-import { BooGhost } from '@divriots/boo-ghost';
+import { FlyingBoo } from '@divriots/flying-boo';
 ```
 
 Or from a CDN without needing NPM
 
 ```html
-<script type="module" src="https://unpkg.com/@divriots/boo-ghost/dist/index.js?module"></script>
-<boo-ghost></boo-ghost>
+<script type="module" src="https://unpkg.com/@divriots/flying-boo/dist/index.js?module"></script>
+<flying-boo></flying-boo>
 ```
 
 ## Features
 
-- Configure the interval speed at which the ghost changes direction with the `change-speed` attribute (default 5000, which is milliseconds)
-- Configure speed amplifier to change how fast the ghost travels with the `speed` attribute (default 1)
-- Change the distance at which the ghost gets scared with the `scare-distance` attribute (default 100, which is in pixels)
+- Configure the interval speed at which Boo changes direction with the `change-speed` attribute (default 5000, which is milliseconds)
+- Configure speed amplifier to change how fast Boo travels with the `speed` attribute (default 1)
+- Change the distance at which Boo gets scared with the `scare-distance` attribute (default 100, which is in pixels)
 
-## SPA accumulating ghosts
+## SPA accumulating Boos
 
-Note that this ghost can be put anywhere on the page, and then it will insert itself into `<html>` element and fly all over your page.
-If you use SPA pattern and have the boo-ghost on multiple pages, the ghosts will accumulate.
+Note that Boo can be put anywhere on the page, and then it will insert itself into `<html>` element and fly all over your page.
+If you use SPA pattern and have the flying-boo on multiple pages, the number of Boos will accumulate.
 
-Therefore, you probably want to clean up the ghosts on route switching, there's a util for that:
+Therefore, you probably want to clean up the Boos on route switching, there's a util for that:
 
 ```js
-import { cleanup } from '@divriots/boo-ghost';
+import { cleanup } from '@divriots/flying-boo';
 
 // whenever you switch routes call this before the new page renders
-// if you're using a different tag-name for your ghost, pass it as an argument
+// if you're using a different tag-name for your Boo element, pass it as an argument
 cleanup();
 ```

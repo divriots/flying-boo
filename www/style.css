@@ -1,0 +1,39 @@
+:root {
+  --color-primary: #a716e0;
+}
+
+html, body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #171717;
+  color: white;
+  
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+h1, h2, h3 {
+  font-family: Happy Halloween, Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  margin-top: 3rem;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+body {
+  max-width: 1000px;
+  margin: 0 auto 5rem auto;
+  padding: 0 3rem;
+}
+
+pre[class*="language-"] {
+  box-shadow: none;
+  border: none;
+  border-radius: 0px;
+}

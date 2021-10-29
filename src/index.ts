@@ -7,8 +7,8 @@ function rangeMap(number, inMin, inMax, outMin, outMax) {
   return ((number - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
 }
 
-@customElement('boo-ghost')
-export class BooGhost extends LitElement {
+@customElement('flying-boo')
+export class FlyingBoo extends LitElement {
   static get styles() {
     return css`
       :host {
@@ -195,6 +195,6 @@ export class BooGhost extends LitElement {
   }
 }
 
-export const cleanup = (tagName = 'boo-ghost') => {
+export const cleanup = (tagName = 'flying-boo') => {
   Array.from(document.querySelectorAll(tagName)).forEach(ghostEl => ghostEl.remove());
 }

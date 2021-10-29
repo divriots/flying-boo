@@ -3,12 +3,50 @@
 
 <head>
   <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" href="./prism.css"> -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./font.css">
+  <link rel="stylesheet" href="./prism.css">
   <script src="./dist/index.js" type="module"></script>
 </head>
 
 <body>
-  <h1>Hello Boo!</h1>
-  <boo-ghost></boo-ghost>
+  <flying-boo></flying-boo>
+  <h1 id="flying-boo">Flying Boo</h1>
+  <p>Fun little halloween gimmick Web Component, works anywhere, based on <a href="https://lit.dev">Lit</a> and <a
+      href="https://www.typescriptlang.org/">TypeScript</a>.</p>
+  <p><a href="https://webcomponents.dev/edit/YnTmdvNX77ccZIphMD0p/stories/index.stories.js">See the demo</a></p>
+  <h2 id="usage">Usage</h2>
+  <pre><code class="language-sh">npm i @divriots/flying-boo</code></pre>
+  <pre><code class="language-html">&lt;script type="module"&gt;
+  import '@divriots/flying-boo';
+&lt;/script&gt;
+&lt;flying-boo&gt;&lt;/flying-boo&gt;</code></pre>
+  <p>Or if you want to extend the component</p>
+  <pre><code class="language-js">import { FlyingBoo } from '@divriots/flying-boo';</code></pre>
+  <p>Or from a CDN without needing NPM</p>
+  <pre><code class="language-html">&lt;script type="module" src="https://unpkg.com/@divriots/flying-boo/dist/index.js?module"&gt;&lt;/script&gt;
+&lt;flying-boo&gt;&lt;/flying-boo&gt;</code></pre>
+  <h2 id="features">Features</h2>
+  <ul>
+    <li>Configure the interval speed at which Boo changes direction with the <code>change-speed</code> attribute
+      (default 5000, which is milliseconds)</li>
+    <li>Configure speed amplifier to change how fast Boo travels with the <code>speed</code> attribute (default 1)</li>
+    <li>Change the distance at which Boo gets scared with the <code>scare-distance</code> attribute (default 100, which
+      is in pixels)</li>
+  </ul>
+  <h2 id="spa-accumulating-boos">SPA accumulating Boos</h2>
+  <p>Note that Boo can be put anywhere on the page, and then it will insert itself into <code>&lt;html&gt;</code>
+    element and fly all over your page.
+    If you use SPA pattern and have the flying-boo on multiple pages, the number of Boos will accumulate.</p>
+  <p>Therefore, you probably want to clean up the Boos on route switching, there&#39;s a util for that:</p>
+  <pre><code class="language-js">import { cleanup } from '@divriots/flying-boo';
+
+// whenever you switch routes call this before the new page renders
+// if you're using a different tag-name for your Boo element, pass it as an argument
+cleanup();</code></pre>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 
 </html>
