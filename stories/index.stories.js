@@ -10,8 +10,8 @@ export default {
 export const main = () => {
   cleanup();
   return `
-    <p>This Ghost will fly off anywhere from your HTML document element, mwuahuahahaha >:)</p>
-    <boo-ghost></boo-ghost>
+    <p>This Boo will fly off anywhere from your HTML document element, mwuahuahahaha >:)</p>
+    <flying-boo></flying-boo>
   `;
 };
 
@@ -19,7 +19,7 @@ export const changeSpeed = () => {
   cleanup();
   return `
     <p>You can configure how quick it changes direction</p>
-    <boo-ghost change-speed="1000"></boo-ghost>
+    <flying-boo change-speed="1000"></flying-boo>
   `;
 }
 
@@ -27,7 +27,7 @@ export const speed = () => {
   cleanup();
   return `
     <p>You can configure how quick it moves</p>
-    <boo-ghost speed="2"></boo-ghost>
+    <flying-boo speed="2"></flying-boo>
   `;
 }
 
@@ -35,6 +35,6 @@ export const scareDistance = () => {
   cleanup();
   return `
     <p>You can configure from how far it gets scared</p>
-    <boo-ghost scare-distance="300"></boo-ghost>
+    <flying-boo scare-distance="300"></flying-boo>
   `;
 }
